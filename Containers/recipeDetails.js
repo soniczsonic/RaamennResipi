@@ -18,7 +18,7 @@ import image1 from '../Images/react.png'
 const { height, width } = Dimensions.get('window');
 
 const uri = 'http://cdn.buzz-plus.com/wp-content/uploads/2016/11/ramen-jiro-omiya6.jpg'
-class Home extends React.Component {
+class RecipeDetails extends React.Component {
   constructor() {
     super()
     this.state = {
@@ -100,4 +100,4 @@ const styles = StyleSheet.create({
     },
 })
 
-export default Home
+export default RecipeDetails

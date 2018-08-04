@@ -38,16 +38,15 @@ class Home extends React.Component {
   renderItem = ({ item }) => {
     return (
       // <Cardを使うと2columnが動かなかった。単純にカードが大きすぎたかも>(動いているが、カードが大きいせいで見えない。)
-      <TouchableOpacity style={{ width: width  /2 }}>
+      <TouchableOpacity>
         <Card
-          containerStyle={{ width: width /2, padding: 0 }}
+          containerStyle={{ width: width * 2 / 5 }}
           image={require('../Images/react.png')}
-          // style={{: 0}}
         >
-          <View style={{left: 0}}>
+          <View>
             <Text style={{ color: '#8bcc57', fontWeight: 'bold', fontSize: 20 }}>{item.title}</Text>
             <Text style={{ marginBottom: 10 }}>
-            {item.description}
+              description
           </Text>
             <View style={{ flexDirection: "row" }}>
               <Text>アイコン</Text>
@@ -68,10 +67,10 @@ class Home extends React.Component {
       return null // or render a loading icon
     }
     return (
-      <View style={styles.container}>
+      <View style={{ flex: 1, backgroundColor: '#eff6f9' }}>
         <FlatList
           data={this.state.recipes}
-          keyExtractor={(item, index) => index}
+          keyExtractor={(item, index) => item.id}
 
           renderItem={this.renderItem}
           numColumns={2}
@@ -90,14 +89,7 @@ const styles = StyleSheet.create({
   title: {},
   name: {},
   restaurantName: {},
-    container: {
-      flex: 1,
-      alignItems: 'center',
-      justifyContent: 'center',
-      backgroundColor: '#eff6f9',
-      left: -10,
-      right: - 10
-    },
+  container: {}
 })
 
 export default Home
