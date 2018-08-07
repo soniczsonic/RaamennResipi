@@ -56,6 +56,7 @@ class Post extends React.Component {
       tips: this.state.tips,
       date: Date.now
     })
+    Alert.alert(`おめでとうございます。\nレシピが公開されました。`)
   }
 
   getPhotosFromGallery = () => {
@@ -150,11 +151,10 @@ class Post extends React.Component {
           onChangeText={val => this.setState({ tips: val })}
           multiline
         />
-        <Text onPress={this.onPress}>Submit</Text>
         <Button title='lol' onPress={console.log(this.state.image)} />
         <Button title='save in storage' onPress={this.saveInStorage} />
 
-        <Button title='投稿する' onPress={() => Alert.alert(`おめでとうございます。\nレシピが公開されました。`)} />
+        <Button title='投稿する' onPress={this.onPress} />
       </View>
     )
   }

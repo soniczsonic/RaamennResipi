@@ -35,10 +35,16 @@ class Home extends React.Component {
     this.setState({ recipes: newArray })
   }
 
+  onPress = () => {
+    this.props.navigation.navigate({routeName: 'RecipeDetailsScreen', key: 'RecipeDetailsScreen'})
+    // this.props.navigation.navigate('RecipeDetailsScreen')
+    console.log(this.props)
+  }
+
   renderItem = ({ item }) => {
     return (
       // <Cardを使うと2columnが動かなかった。単純にカードが大きすぎたかも>(動いているが、カードが大きいせいで見えない。)
-      <TouchableOpacity style={{ width: width  /2 }}>
+      <TouchableOpacity onPress={this.onPress} style={{ width: width  /2 }}>
         <Card
           containerStyle={{ width: width /2, padding: 0 }}
           image={require('../Images/react.png')}
