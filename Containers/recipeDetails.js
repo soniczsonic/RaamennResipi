@@ -10,7 +10,7 @@ import {
   Dimensions,
   TouchableOpacity
 } from 'react-native'
-import { Card, Button, Icon, Divider, Tile, List, ListItem  } from 'react-native-elements'
+// import { Card, Button, Icon, Divider, Tile, List, ListItem  } from 'react-native-elements'
 import firebase from 'react-native-firebase'
 
 import image1 from '../Images/react.png'
@@ -22,11 +22,11 @@ class RecipeDetails extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <Tile
+        {/* <Tile
           imageSrc={require('../Images/react.png')}
           title="美味しいラーメン"
           contentContainerStyle={{ height: 70 }}
-        >
+        > */}
           <View
             style={{ flex: 1, flexDirection: 'row', justifyContent: 'space-between' }}
           >
@@ -39,7 +39,7 @@ class RecipeDetails extends React.Component {
               />
             </List>
           </View>
-        </Tile>
+        {/* </Tile> */}
       </View>
     )
   }

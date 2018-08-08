@@ -10,7 +10,6 @@ import {
   Dimensions,
   TouchableOpacity
 } from 'react-native'
-import { Card, ListItem, Button, Icon, Divider } from 'react-native-elements'
 import firebase from 'react-native-firebase'
 
 import image1 from '../Images/react.png'
@@ -45,10 +44,13 @@ class Home extends React.Component {
     return (
       // <Cardを使うと2columnが動かなかった。単純にカードが大きすぎたかも>(動いているが、カードが大きいせいで見えない。)
       <TouchableOpacity onPress={this.onPress} style={{ width: width  /2 }}>
-        <Card
+        {/* <Card
           containerStyle={{ width: width /2, padding: 0 }}
           image={require('../Images/react.png')}
           // style={{: 0}}
+        > */}
+        <View
+          containerStyle={{ width: width /2, padding: 0 }}
         >
           <View style={{left: 0}}>
             <Text style={{ color: '#8bcc57', fontWeight: 'bold', fontSize: 20 }}>{item.title}</Text>
@@ -59,12 +61,12 @@ class Home extends React.Component {
               <Text>アイコン</Text>
               <Text>{item.name}</Text>
             </View>
-            <Divider style={{ backGroundColor: 'black' }} />
 
             <Text>2018/5/6</Text>
 
           </View>
-        </Card >
+          </View>
+        {/* </Card > */}
       </TouchableOpacity>
     )
   }
