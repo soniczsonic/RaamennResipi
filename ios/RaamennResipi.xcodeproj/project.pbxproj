@@ -705,7 +705,6 @@
 				13B07F8C1A680F5B00A75B9A /* Frameworks */,
 				13B07F8E1A680F5B00A75B9A /* Resources */,
 				00DD1BFF1BD5951E006B06BC /* Bundle React Native code and images */,
-				C541DDF65A592F64856BF237 /* [CP] Embed Pods Frameworks */,
 				361D97446E1995E83EBBF523 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
@@ -1212,21 +1211,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-RaamennResipi/Pods-RaamennResipi-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		C541DDF65A592F64856BF237 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-RaamennResipi/Pods-RaamennResipi-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		D57D5304AAD22BFE1183949D /* [CP] Check Pods Manifest.lock */ = {
