@@ -8,7 +8,7 @@ import {
   Image,
   StyleSheet,
   Dimensions,
-  TouchableOpacity
+  TouchableOpacity,
 } from 'react-native'
 import { Card, ListItem, Button, Icon, Divider } from 'react-native-elements'
 import firebase from 'react-native-firebase'
@@ -33,6 +33,10 @@ class Home extends React.Component {
     const newArray = recipes._docs.map(x => x._data)
     console.log(newArray)
     this.setState({ recipes: newArray })
+  }
+
+  componentWillReceiveProps = (nextProps) => {
+    console.log(nextProps)
   }
 
   onPress = () => {
@@ -75,21 +79,26 @@ class Home extends React.Component {
     }
     return (
       <View style={styles.container}>
-        <FlatList
-          data={this.state.recipes}
-          keyExtractor={(item, index) => index}
+        <ScrollView showsVerticalScrollIndicator={false} >
+          <FlatList
+            data={this.state.recipes}
+            keyExtractor={(item, index) => index}
 
-          renderItem={this.renderItem}
-          numColumns={2}
-          horizontal={false}
-          contentContainerStyle={styles.container}
-        />
+            renderItem={this.renderItem}
+            numColumns={2}
+            horizontal={false}
+            contentContainerStyle={styles.container}
+          />
+        </ScrollView>
       </View>
     )
   }
 }
 
 const styles = StyleSheet.create({
+  container: {
+    flex: 1
+  },
   cardText: {
     flexDirection: 'row'
   },

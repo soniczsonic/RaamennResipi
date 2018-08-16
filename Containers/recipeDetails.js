@@ -21,23 +21,25 @@ const uri = 'http://cdn.buzz-plus.com/wp-content/uploads/2016/11/ramen-jiro-omiy
 class RecipeDetails extends React.Component {
   render() {
     return (
-      <View style={styles.container}>
-        <Tile
-          imageSrc={require('../Images/react.png')}
-          title="美味しいラーメン"
-          contentContainerStyle={{ height: 70 }}
-        >
-          <View
-            style={{ flex: 1, flexDirection: 'row', justifyContent: 'space-between' }}
+      <ScrollView>
+        <View style={styles.container}>
+          <Tile
+            imageSrc={require('../Images/react.png')}
+            title="美味しいラーメン"
+            contentContainerStyle={{ height: 70 }}
           >
-            <Text>Caption</Text>
-            <Text>Caption</Text>
-          </View>
-          <Text>材料</Text>
-          <Text>作り方</Text>
-          <Text>コツ・ポイント</Text>
-        </Tile>
-      </View>
+            <View
+              style={{ flex: 1, flexDirection: 'row', justifyContent: 'space-between' }}
+            >
+              <Text>Caption</Text>
+              <Text>Caption</Text>
+            </View>
+            <Text>材料</Text>
+            <Text>作り方</Text>
+            <Text>コツ・ポイント</Text>
+          </Tile>
+        </View>
+      </ScrollView>
     )
   }
 }

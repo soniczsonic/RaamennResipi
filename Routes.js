@@ -7,8 +7,8 @@ import RecipeDetailsScreen from './Containers/recipeDetails'
 
 const HomeSubNav = StackNavigator(
   {
-  HomeScreen: HomeScreen,
-  RecipeDetailsScreen: RecipeDetailsScreen
+    RecipeDetailsScreen: RecipeDetailsScreen,
+    HomeScreen: HomeScreen,
   }
 )
 const PostSubNav = StackNavigator(

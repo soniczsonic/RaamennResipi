@@ -1,3 +1,3 @@
-import App from "./Routes"
+import App from "./Main"
 export default App
 
