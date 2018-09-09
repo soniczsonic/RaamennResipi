@@ -13,11 +13,13 @@ import {
 import { Card, Button, Icon, Divider, List, ListItem, Tile  } from 'react-native-elements'
 import firebase from 'react-native-firebase'
 
-import image1 from '../Images/react.png'
-
 const { height, width } = Dimensions.get('window');
 
-const uri = 'http://cdn.buzz-plus.com/wp-content/uploads/2016/11/ramen-jiro-omiya6.jpg'
+// const uri = 'http://cdn.buzz-plus.com/wp-content/uploads/2016/11/ramen-jiro-omiya6.jpg'
+
+const ingredientData = [{"ingredient": "中華麺", "gram": "300gぐらい"}, {"ingredient": "ニンニク", "gram": "ひとつまみ"}] // arr
+const howToCookData = [{"text": "麺を煮ます"}, {"text": "野菜を切ります"}, {"text": "二つを混ぜ合わせます"}] // arr
+const tipsData = "ニンニクをこれでもかと振りかけます" // string
 class RecipeDetails extends React.Component {
   render() {
     return (
@@ -34,9 +36,21 @@ class RecipeDetails extends React.Component {
               <Text>Caption</Text>
               <Text>Caption</Text>
             </View>
-            <Text>材料</Text>
-            <Text>作り方</Text>
-            <Text>コツ・ポイント</Text>
+            <Text style={styles.subHeader}>材料</Text>
+            <View style={styles.ingTextWrapper}>
+              <Text style={styles.ingTextLeft}>中華麺</Text>
+              <Text style={styles.ingTextRight}>300g</Text>
+            </View>
+            <Text style={styles.subHeader}>作り方</Text>
+            <FlatList
+              data={howToCookData}
+              renderItem={item => <Text style={styles.subHeader}>{item.text}</Text>}
+            />
+            <Text style={styles.subHeader}>1.麺を煮ます</Text>
+            <Text style={styles.subHeader}>2.野菜を切ります。</Text>
+            <Text style={styles.subHeader}>3.二つを混ぜ合わせます。</Text>
+            <Text style={styles.subHeader}>コツ・ポイント</Text>
+            <Text style={styles.tipsText}>ニンニクチップをこれでもかと振りかけます。</Text>
           </Tile>
         </View>
       </ScrollView>
@@ -48,17 +62,35 @@ const styles = StyleSheet.create({
   cardText: {
     flexDirection: 'row'
   },
+  subHeader: {
+    alignSelf: "center"
+  },
+  ingTextWrapper: {
+    flexDirection: "row",
+  },
+  ingTextLeft: {
+    alignSelf: "flex-start"
+  },
+  ingTextRight: {
+    alignSelf: "flex-end"
+  },
+  ingredientLeftText: {
+    justifyContent: 'center'
+  },
+  tipsText: {
+    alignSelf: "center"
+  },
   title: {},
   name: {},
   restaurantName: {},
-    container: {
-      flex: 1,
-      alignItems: 'center',
-      justifyContent: 'center',
-      backgroundColor: '#eff6f9',
-      left: -10,
-      right: - 10
-    },
+  container: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: '#eff6f9',
+    left: -10,
+    right: - 10
+  }
 })
 
 export default RecipeDetails

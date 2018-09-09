@@ -6,9 +6,7 @@ import {
   StyleSheet,
   Text,
   TouchableHighlight
-
 } from 'react-native';
-
 import SelectedPhotos from './SelectedPhotos';
 
 class ViewPhotos extends Component {
@@ -37,8 +35,7 @@ class ViewPhotos extends Component {
   }
 
   render() {
-    const { showSelectedPhoto, uri } = this.state;
-
+    const { showSelectedPhoto, uri } = this.state
     // if (showSelectedPhoto) {
     //   return (
     //     <SelectedPhotos
@@ -65,7 +62,6 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     flexWrap: 'wrap'
   },
-
   image: {
     width: 110,
     height: 120,
