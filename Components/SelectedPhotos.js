@@ -3,8 +3,6 @@ import {
   Image,
   View,
   StyleSheet,
-  Text,
-  TouchableHighlight
 } from 'react-native';
 
 const SelectedPhoto = (props) => {
@@ -15,8 +13,8 @@ const SelectedPhoto = (props) => {
         source={{ uri: uri }}
         style={styles.image} />
     </View>
-  );
-};
+  )
+}
 
 const styles = StyleSheet.create({
   container: {

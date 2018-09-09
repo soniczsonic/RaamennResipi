@@ -1,24 +1,18 @@
-import React from 'react'
+import React, {Component} from 'react'
 import {
-  ScrollView,
   View,
   Text,
-  TextInput,
   FlatList,
-  Image,
   StyleSheet,
   Dimensions,
   TouchableOpacity,
 } from 'react-native'
-import { Card, ListItem, Button, Icon, Divider } from 'react-native-elements'
+import { Card, Divider } from 'react-native-elements'
 import firebase from 'react-native-firebase'
 
-import image1 from '../Images/react.png'
+const { width } = Dimensions.get('window');
 
-const { height, width } = Dimensions.get('window');
-
-const uri = 'http://cdn.buzz-plus.com/wp-content/uploads/2016/11/ramen-jiro-omiya6.jpg'
-class Home extends React.Component {
+class Home extends Component {
   constructor() {
     super()
     this.state = {
@@ -35,24 +29,19 @@ class Home extends React.Component {
     this.setState({ recipes: newArray })
   }
 
-  componentWillReceiveProps = (nextProps) => {
+  componentWillReceiveProps = (nextProps) =>
     console.log(nextProps)
-  }
 
-  onPress = () => {
+  onPress = () =>
     this.props.navigation.navigate({routeName: 'RecipeDetailsScreen', key: 'RecipeDetailsScreen'})
-    // this.props.navigation.navigate('RecipeDetailsScreen')
-    console.log(this.props)
-  }
 
   renderItem = ({ item }) => {
     return (
-      // <Cardを使うと2columnが動かなかった。単純にカードが大きすぎたかも>(動いているが、カードが大きいせいで見えない。)
       <TouchableOpacity onPress={this.onPress} style={{ width: width  /2 }}>
+        <React.Fragment>
         <Card
           containerStyle={{ width: width /2, padding: 0 }}
           image={require('../Images/react.png')}
-          // style={{: 0}}
         >
           <View style={{left: 0}}>
             <Text style={{ color: '#8bcc57', fontWeight: 'bold', fontSize: 20 }}>{item.title}</Text>
@@ -64,26 +53,24 @@ class Home extends React.Component {
               <Text>{item.name}</Text>
             </View>
             <Divider style={{ backGroundColor: 'black' }} />
-
             <Text>2018/5/6</Text>
-
           </View>
         </Card >
+        <Text>何かここに必要か？</Text>
+        </React.Fragment>
       </TouchableOpacity>
     )
   }
 
+  
   render() {
-    if (this.state.loading) {
-      return null // or render a loading icon
-    }
+    if (this.state.loading) return null
     return (
       <View style={styles.container}>
         <ScrollView showsVerticalScrollIndicator={false} >
           <FlatList
             data={this.state.recipes}
             keyExtractor={(item, index) => index}
-
             renderItem={this.renderItem}
             numColumns={2}
             horizontal={false}
@@ -97,7 +84,12 @@ class Home extends React.Component {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: '#eff6f9',
+    left: -10,
+    right: - 10
   },
   cardText: {
     flexDirection: 'row'
@@ -105,14 +97,6 @@ const styles = StyleSheet.create({
   title: {},
   name: {},
   restaurantName: {},
-    container: {
-      flex: 1,
-      alignItems: 'center',
-      justifyContent: 'center',
-      backgroundColor: '#eff6f9',
-      left: -10,
-      right: - 10
-    },
 })
 
 export default Home

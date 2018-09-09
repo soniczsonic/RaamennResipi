@@ -1,6 +1,5 @@
 import React from 'react'
 import {
-  ScrollView,
   View,
   Text,
   TextInput,
@@ -13,9 +12,22 @@ import {
   Alert
 } from 'react-native'
 import firebase from 'react-native-firebase'
-import ViewPhotos from '../Components/ViewPhotos';
+import ViewPhotos from '../Components/ViewPhotos'
 
-const { height, width } = Dimensions.get('window');
+const unsubscribe = firebase.storage()
+                        .ref('/files/1234')
+                        .putFile('/path/to/file/1234')
+                        .on('state_changed', snapshot => {
+                            //Current upload state
+                        }, err => {
+                            //Error
+                            unsubscribe();
+                        }, uploadedFile => {
+                            //Success
+                            unsubscribe();
+                        });
+
+const { width } = Dimensions.get('window');
 class Post extends React.Component {
   constructor() {
     super()
@@ -23,16 +35,12 @@ class Post extends React.Component {
     this.unsubscribe = null
     this.state = {
       textInput: '',
-
-      // textInput
       title: '',
       description: '',
       howToCook: '',
       ingredients: '',
       tips: '',
       date: '',
-      
-
       name: '',
       restaurantName: '',
       showPhotoGallery: false,
@@ -44,7 +52,6 @@ class Post extends React.Component {
   componentDidMount = () => {
     console.log(firebase.storage.Native.PICTURES_DIRECTORY_PATH)
     console.log('this state image uri = ' + this.state.image)
-
   }
 
   onPress = () => {
@@ -67,7 +74,6 @@ class Post extends React.Component {
         let photoArray = res.edges;
         this.setState({ showPhotoGallery: true, photoArray: photoArray })
         console.log(photoArray)
-        console.log
       })
   }
 
@@ -82,9 +88,9 @@ class Post extends React.Component {
       .putFile(
         `${firebase.storage.Native.PICTURES_DIRECTORY_PATH}/IMG_0005.JPG`
       )
+      .then(console.log(firebase.storage.Native))
       .then(console.log("successed to download image"))
       .catch(console.log("failure"));
-
   }
 
   render() {
@@ -153,7 +159,6 @@ class Post extends React.Component {
         />
         <Button title='lol' onPress={console.log(this.state.image)} />
         <Button title='save in storage' onPress={this.saveInStorage} />
-
         <Button title='投稿する' onPress={this.onPress} />
       </View>
     )
