@@ -16,7 +16,6 @@ const PostSubNav = StackNavigator(
     PostScreen: PostScreen
   }
 )
-
 const TimeLineSubNav = StackNavigator(
   {
     TimeLineScreen: TimeLineScreen
