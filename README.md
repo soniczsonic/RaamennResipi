@@ -14,9 +14,11 @@ UIはクックパッドをそのままパクる。
 
 
 # todo
-androidでfirebase storeに対応
-androidでfirebase storageに対応
-デザインrecipe details
-デザインホーム
-デザインpost
-react-native-brobを有効にする。
+- [x] firebaseにdatabase作成 :+1:
+- [x] firebaseのデータの読み出し、書き込みを実装 :+1:
+- [x] react-native-brobでなくreact-native-storageの機能のみを使う。
+- [ ] androidでfirebase storeに対応
+- [ ] androidでfirebase storageに対応
+- [ ] デザインrecipe details
+- [ ] デザインホーム
+- [ ] デザインpost
