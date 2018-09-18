@@ -37,28 +37,25 @@ class Home extends Component {
 
   renderItem = ({ item }) => {
     return (
-      <React.Fragment>
-        <TouchableOpacity onPress={this.onPress} style={{ width: width  /2 }}>
-          <Card
-            containerStyle={{ width: width /2, padding: 0 }}
-            image={require('../Images/react.png')}
-          >
-            <View style={{left: 0}}>
-              <Text style={{ color: '#8bcc57', fontWeight: 'bold', fontSize: 20 }}>{item.title}</Text>
-              <Text style={{ marginBottom: 10 }}>
-              {item.description}
-            </Text>
-              <View style={{ flexDirection: "row" }}>
-                <Text>アイコン</Text>
-                <Text>{item.name}</Text>
-              </View>
-              <Divider style={{ backGroundColor: 'black' }} />
-              <Text>2018/5/6</Text>
+      <TouchableOpacity onPress={this.onPress} style={{ width: width  /2 }}>
+        <Card
+          containerStyle={{ width: width /2, padding: 0 }}
+          image={require('../Images/react.png')}
+        >
+          <View style={{left: 0}}>
+            <Text style={{ color: '#8bcc57', fontWeight: 'bold', fontSize: 20 }}>{item.title}</Text>
+            <Text style={{ marginBottom: 10 }}>
+            {item.description}
+          </Text>
+            <View style={{ flexDirection: "row" }}>
+              <Text>アイコン</Text>
+              <Text>{item.name}</Text>
             </View>
-          </Card >
-        </TouchableOpacity>
-        <Text>何かここに必要か？</Text>
-      </React.Fragment>
+            <Divider style={{ backGroundColor: 'black' }} />
+            <Text>2018/5/6</Text>
+          </View>
+        </Card >
+      </TouchableOpacity>
     )
   }
 
